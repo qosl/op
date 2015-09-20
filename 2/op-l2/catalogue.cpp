@@ -7,7 +7,10 @@ Catalogue::Catalogue() {
 void Catalogue::addGame(std::istream& in) {
     game gm;
 
-    std::cout << "Enter id" << std::endl;
+    std::cout << "You're gonna add a game "
+                 "to catalogue, nigga" << std::endl;
+
+    std::cout << "Enter id:" << std::endl;
     in >> gm.id ;
 
     std::cin.ignore(INT_MAX,'\n');
@@ -32,8 +35,8 @@ void Catalogue::addGame(std::istream& in) {
 void Catalogue::show() {
 
     for (std::vector<game>::iterator i = games.begin(); i != games.end(); i++) {
-        std::cout << std::setw(10) << (*i).id       << std::setw(10) << (*i).name
-                  << std::setw(10) << (*i).year     << std::setw(20) << (*i).systemRequirements
-                  << std::setw(10) << (*i).price    << std::endl;
+        std::cout << std::setw(10) << i->id    << std::setw(10) << i->name
+                  << std::setw(10) << i->year  << std::setw(20) << i->systemRequirements
+                  << std::setw(10) << i->price << std::endl;
     }
 }

@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <climits>
 #include <cstdio>
+#include <cstdlib>
 
 #endif // TOOLS
 
