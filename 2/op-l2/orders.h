@@ -17,7 +17,7 @@ public:
     };
 
     std::vector<order> orders;
-    void addOrder (std::istream& in);
+    void addOrder ();
     void showInDetail (Catalogue*&, Clients*&);
     void show();
 };

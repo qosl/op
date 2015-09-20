@@ -32,12 +32,23 @@ void Catalogue::addGame(std::istream& in) {
 }
 
 void Catalogue::show() {
-    for (std::vector<game>::iterator i = games.begin(); i != games.end(); i++) {
-        std::cout << std::setw(10) << i->id
-                  << std::setw(10) << i->name
-                  << std::setw(10) << i->year
-                  << std::setw(20) << i->systemRequirements
-                  << std::setw(10) << i->price
-                  << std::endl;
+    using namespace std;
+    cout << setw(2) << left << "id" << " | "
+         << setw(30)<< left << "Name" << " | "
+         << setw(4) << left << "Year" << " | "
+         << setw(70)<< left << "System Requirements" << " | "
+         << setw(7) << left << "Price"<< " | "
+         << endl;
+    cout << "-----------------------------------------------"
+            "-----------------------------------------------"
+            "---------------------------------"
+            << endl;
+    for (vector<game>::iterator i = games.begin(); i != games.end(); i++) {
+        cout << setw(2) << left << i->id   << " | "
+             << setw(30)<< left << i->name << " | "
+             << setw(4) << left << i->year << " | "
+             << setw(70)<< left << i->systemRequirements << " | "
+             << setw(7) << left << i->price << " | "
+             << endl;
     }
 }
