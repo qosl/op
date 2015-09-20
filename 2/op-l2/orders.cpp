@@ -1,7 +1,6 @@
 #include "orders.h"
 
-Orders::Orders()
-{
+Orders::Orders() {
     order ord = { 0, 0, ""};
 }
 
@@ -21,22 +20,38 @@ void Orders::addOrder(std::istream& in) {
     std::cout << "Enter id of game:" << std::endl;
     in >> ord.gameId ;
 
-    //std::cin.ignore(INT_MAX,'\n');
-
     orders.push_back(ord);
 }
 
-void Orders::showInDetail(std::istream& in, Catalogue*& cat, Clients*& cl) {
-    for (std::vector<order>::iterator i = orders.begin(); i != orders.end(); i++) {
-        int kek = i->clientId;
-        std::cout << kek << std::endl;
-        std::cout << cl->clients[kek - 1].fullName;
+void Orders::showInDetail(Catalogue*& catalogue, Clients*& cl) {
+    for (std::vector<order>::iterator i = orders.begin(); i != orders.end(); i++)
+    {
+        std::vector<Clients::client>::iterator j;
+        for (j = cl->clients.begin(); j != cl->clients.end(); j++)
+        {
+            if (i->clientId == j->id) {
+                // std::cout << cl->clients[i->clientId - 1].fullName;
+                std::cout << j->fullName << " - ";
+                //break;
+            }
+        }
+
+        std::vector<Catalogue::game>::iterator x;
+        for (x = catalogue->games.begin(); x != catalogue->games.end(); x++)
+        {
+            if (i->gameId == x->id) {
+                // std::cout << cl->clients[i->clientId - 1].fullName;
+                std::cout << x->name << " - ";
+                //break;
+            }
+        }
+        std::cout << i->date << std::endl;
     }
 }
 
 void Orders::show() {
-    for (std::vector<order>::iterator i = orders.begin();
-         i != orders.end(); i++) {
+    std::vector<order>::iterator i;
+    for (i = orders.begin(); i != orders.end(); i++) {
         std::cout << std::setw(10) << i->clientId
                   << std::setw(10) << i->gameId
                   << std::setw(10) << i->date

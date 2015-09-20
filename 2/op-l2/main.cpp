@@ -47,9 +47,10 @@ void menu(Catalogue*& catalogue, Clients*& clients, Orders*& orders) {
             orders->show();
         }
         else if (c == '7') {
-            orders->showInDetail(std::cin, catalogue, clients);
+            orders->showInDetail(catalogue, clients);
         }
         else std::cout << "Enter g(G) or c(C)" << std::endl;
+
         std::cin.ignore(INT_MAX, '\n');
     }
 }

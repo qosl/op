@@ -18,9 +18,7 @@ public:
 
     std::vector<order> orders;
     void addOrder (std::istream& in);
-    void showInDetail (std::istream& in,
-                       Catalogue*& ,
-                       Clients*&);
+    void showInDetail (Catalogue*&, Clients*&);
     void show();
 };
 #endif // ORDERS_H
