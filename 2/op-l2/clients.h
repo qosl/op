@@ -6,16 +6,16 @@
 class Clients
 {
 public:
-    Clients();
     struct client
     {
         int             id;
         std::string     fullName;
         int             phoneNumber;
     };
-
     std::vector<client> clients;
 
+public:
+    Clients();
     void addClient(std::istream&);
     void show();
 };

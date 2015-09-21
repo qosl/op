@@ -59,6 +59,5 @@ int main()
     Catalogue *catalogue = new Catalogue();
     Clients     *clients = new Clients();
     Orders       *orders = new Orders();
-
     menu(catalogue, clients, orders);
 }

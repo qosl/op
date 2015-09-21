@@ -9,7 +9,7 @@ class Orders
 {
 public:
     Orders();
-public:
+
     struct order {
         int             clientId;
         int             gameId;

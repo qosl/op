@@ -33,7 +33,7 @@ void Catalogue::addGame(std::istream& in) {
 
 void Catalogue::show() {
     using namespace std;
-    cout << setw(2) << left << "id" << " | "
+     cout << setw(2) << left << "id" << " | "
          << setw(30)<< left << "Name" << " | "
          << setw(4) << left << "Year" << " | "
          << setw(70)<< left << "System Requirements" << " | "
