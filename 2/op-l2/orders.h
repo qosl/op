@@ -15,10 +15,11 @@ public:
         int             gameId;
         std::string     date;
     };
-
-    std::vector<order> orders;
     void addOrder ();
     void showInDetail (Catalogue*&, Clients*&);
     void show();
+private:
+    std::vector<order> orders;
 };
+
 #endif // ORDERS_H

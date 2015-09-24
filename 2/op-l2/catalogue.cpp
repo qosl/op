@@ -52,3 +52,7 @@ void Catalogue::show() {
              << endl;
     }
 }
+
+std::vector<Catalogue::game>& Catalogue::getGames() {
+    return this->games;
+}

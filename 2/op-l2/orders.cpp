@@ -23,19 +23,20 @@ void Orders::addOrder() {
     orders.push_back(ord);
 }
 
-void Orders::showInDetail(Catalogue*& catalogue, Clients*& cl) {
+void Orders::showInDetail(Catalogue*& catalogue, Clients*& clients) {
+    std::vector<Catalogue::game> o = catalogue->getGames();
+    std::vector<Clients::client> c = clients->getClients();
+
     for (std::vector<order>::iterator i = orders.begin(); i != orders.end(); i++) {
         std::vector<Clients::client>::iterator j;
-
-        for (j = cl->clients.begin(); j != cl->clients.end(); j++) {
+        for (j = c.begin(); j != c.end(); j++) {
             if (i->clientId == j->id) {
                 std::cout << j->fullName << " - ";
                 break;
             }
         }
-
         std::vector<Catalogue::game>::iterator x;
-        for (x = catalogue->games.begin(); x != catalogue->games.end(); x++) {
+        for (x = o.begin(); x != o.end(); x++) {
             if (i->gameId == x->id) {
                 std::cout << x->name << " - ";
                 break;

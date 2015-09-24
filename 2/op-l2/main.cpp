@@ -48,6 +48,7 @@ void menu(Catalogue*& catalogue, Clients*& clients, Orders*& orders) {
         else if (c == '7') {
             orders->showInDetail(catalogue, clients);
         }
+
         else std::cout << "Enter g(G) or c(C)" << std::endl;
 
         std::cin.ignore(INT_MAX, '\n');

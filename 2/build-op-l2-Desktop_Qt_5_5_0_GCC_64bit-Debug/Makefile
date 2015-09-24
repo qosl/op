@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = 
 CFLAGS        = -pipe -g -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -std=c++0x -Wall -W -fPIC $(DEFINES)
 INCPATH       = -I../op-l2 -I. -I../../../Qt5.5.0/5.5/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/kiber/Qt5.5.0/5.5/gcc_64/bin/qmake
 DEL_FILE      = rm -f
@@ -176,6 +176,7 @@ DIST          = ../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		../op-l2/deployment.pri \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/resolve_config.prf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/default_post.prf \
+		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/c++11.prf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/warn_on.prf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/testcase_targets.prf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/exceptions.prf \
@@ -338,6 +339,7 @@ Makefile: ../op-l2/op-l2.pro ../../../Qt5.5.0/5.5/gcc_64/mkspecs/linux-g++/qmake
 		../op-l2/deployment.pri \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/resolve_config.prf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/default_post.prf \
+		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/c++11.prf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/warn_on.prf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/testcase_targets.prf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/exceptions.prf \
@@ -465,6 +467,7 @@ Makefile: ../op-l2/op-l2.pro ../../../Qt5.5.0/5.5/gcc_64/mkspecs/linux-g++/qmake
 ../op-l2/deployment.pri:
 ../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/resolve_config.prf:
 ../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/default_post.prf:
+../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/c++11.prf:
 ../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/warn_on.prf:
 ../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/testcase_targets.prf:
 ../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/exceptions.prf:
@@ -512,7 +515,9 @@ compiler_clean:
 ####### Compile
 
 main.o: ../op-l2/main.cpp ../op-l2/catalogue.h \
-		../op-l2/tools.h
+		../op-l2/tools.h \
+		../op-l2/clients.h \
+		../op-l2/orders.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../op-l2/main.cpp
 
 catalogue.o: ../op-l2/catalogue.cpp ../op-l2/catalogue.h \
@@ -524,7 +529,9 @@ clients.o: ../op-l2/clients.cpp ../op-l2/clients.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o clients.o ../op-l2/clients.cpp
 
 orders.o: ../op-l2/orders.cpp ../op-l2/orders.h \
-		../op-l2/tools.h
+		../op-l2/tools.h \
+		../op-l2/catalogue.h \
+		../op-l2/clients.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o orders.o ../op-l2/orders.cpp
 
 ####### Install

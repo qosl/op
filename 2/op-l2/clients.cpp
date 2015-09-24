@@ -12,6 +12,11 @@ void Clients::addClient(std::istream &in) {
     std::cout << "Enter client's id" << std::endl;
     in >> ct.id ;
 
+    if (ct.id >= 100 || ct.id < 0) {
+        std::cout << "WRONG INPUT" << std::endl;
+        return;
+    }
+
     std::cin.ignore(INT_MAX,'\n');
 
     std::cout << "Enter clients name:" << std::endl;
@@ -22,6 +27,7 @@ void Clients::addClient(std::istream &in) {
 
     clients.push_back(ct);
 }
+
 void Clients::show() {
     for (std::vector<client>::iterator i = clients.begin();
          i != clients.end(); i++) {
@@ -30,4 +36,8 @@ void Clients::show() {
                   << std::setw(10) << i->phoneNumber
                   << std::endl;
     }
+}
+
+std::vector<Clients::client> Clients::getClients() {
+    return this->clients;
 }
