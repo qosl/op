@@ -9,15 +9,18 @@ class Orders
 {
 public:
     Orders();
+    ~Orders();
 
     struct order {
         int             clientId;
         int             gameId;
         std::string     date;
     };
-    void addOrder ();
+
+    void addOrder (Catalogue*&, Clients*&);
     void showInDetail (Catalogue*&, Clients*&);
     void show();
+
 private:
     std::vector<order> orders;
 };

@@ -6,6 +6,9 @@
 class Catalogue
 {
 public:
+    Catalogue();
+    ~Catalogue();
+
     typedef struct
     {
         int             id;
@@ -14,11 +17,11 @@ public:
         std::string     systemRequirements;
         double          price;
     } game;
-    Catalogue();
-    void addGame(std::istream&);
-    void show();
 
+    void addGame();
+    void show();
     std::vector<game>& getGames();
+
 private:
     std::vector<game> games;
 };

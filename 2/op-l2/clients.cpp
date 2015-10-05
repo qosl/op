@@ -13,8 +13,15 @@ void Clients::addClient(std::istream &in) {
     in >> ct.id ;
 
     if (ct.id >= 100 || ct.id < 0) {
-        std::cout << "WRONG INPUT" << std::endl;
+        std::cout << "Wrong input!" << std::endl;
         return;
+    }
+
+    for (auto & i : clients) {
+        if (i.id == ct.id) {
+            std::cout << "Wrong input!" << std::endl;
+            return;
+        }
     }
 
     std::cin.ignore(INT_MAX,'\n');
@@ -24,20 +31,35 @@ void Clients::addClient(std::istream &in) {
 
     std::cout << "Enter client's phone number:" << std::endl;
     in >> ct.phoneNumber;
-
+    //std::cin.ignore(INT_MAX,'\n');
+    std::cout << "Done." << std::endl;
     clients.push_back(ct);
 }
 
 void Clients::show() {
-    for (std::vector<client>::iterator i = clients.begin();
-         i != clients.end(); i++) {
-        std::cout << std::setw(10) << i->id
-                  << std::setw(10) << i->fullName
-                  << std::setw(10) << i->phoneNumber
+    using namespace std;
+    cout << setw(2) << left << "id" << " | "
+         << setw(30)<< left << "Name" << " | "
+         << setw(20) << left << "Phone number" << " | "
+         << endl;
+
+    cout << "-----------------------------------------------"
+            "-------------"
+            << endl;
+
+    for (const auto & i : clients) {
+        std::cout << std::setw(2) << i.id << " | "
+                  << std::setw(30) << i.fullName << " | "
+                  << std::setw(20) << i.phoneNumber << " | "
                   << std::endl;
     }
 }
 
-std::vector<Clients::client> Clients::getClients() {
+std::vector<Clients::client>& Clients::getClients() {
     return this->clients;
+}
+
+Clients::~Clients() {
+    std::cout << "Clients. Destructor." << std::endl;
+    this->clients.clear();
 }

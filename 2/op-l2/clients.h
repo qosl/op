@@ -7,15 +7,16 @@ class Clients
 {
 public:
     Clients();
+    ~Clients();
+
     struct client
     {
         int             id;
         std::string     fullName;
-        int             phoneNumber;
+        long int        phoneNumber;
     };
 
-public:
-    std::vector<client> getClients();
+    std::vector<client>& getClients();
     void addClient(std::istream&);
     void show();
 private:
