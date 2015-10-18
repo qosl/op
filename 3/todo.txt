@@ -1,0 +1,3 @@
+typical solve of diamond problem:
+page 490 in the following book:
+/home/kiber/Documents/books/cpp_oop.pdf

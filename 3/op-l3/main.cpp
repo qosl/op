@@ -29,6 +29,7 @@ Triangle* initialize() {
         cin >> x >> y;
         lol[i] = make_pair(x, y);
     }
+
     string s;
 
     eatline();
@@ -53,7 +54,7 @@ int main() {
         system("clear");
         puts("Igor Mayorov, IP 44, var. 8, level HARDEST.");
         puts("Press any key to enter triangle or q to exit.");
-        cout << "Enter 3 pairs of coordinates in following format: x y. "
+        cout << "Enter 3 pairs of coordinates in following format: x y.\n"
                 "Then, double or string value." << endl;
         Triangle *lol = initialize();
         cout << lol->getsquare() << endl;

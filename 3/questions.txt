@@ -1,0 +1,114 @@
+Questions:
+0.
+A: 
+	Are private members of base class inherited in derived class (using public, protected or private inheritance, whatever)?
+Q:
+	A derived class doesn't inherit access to private data members. However, it does inherit a full parent object, which contains any private members which that class declares.
+	Or, in other words, derived class inherits all the members of base class but this doesn't mean it has access to those members. 
+
+http://stackoverflow.com/questions/2676443/inheriting-private-members-in-c
+-----------------------------------------------------------------------------
+1.
+Q:
+
+		class lol
+		int k;
+		members...
+	/				\
+class lal:lol				class lul:lol
+k - inhereted from lol			k - inhereted from lul
+members...				members...
+	\				/
+		class lil : lal, lul
+			k - which k do we have here? From lal or from lul?
+			members...
+			
+			^
+			|							
+A: There are two ways of solve this problem:
+	1. Using mechanism of virual inheritance
+	2. Using operator "::"
+-----------------------------------------------------------------------------
+2.
+Q: 
+	Inheritance of constructors. V kakoi posledovatelnosti vizyvayutsya constructory? A destructory?
+-----------------------------------------------------------------------------
+3.
+Q: 
+	Which type of inheritance is used in C++ by default? 
+A: 
+	public
+-----------------------------------------------------------------------------
+4.
+If public member is inherited as protected, which type will it be in inhereted class?
+A: 
+class A 
+{
+public:
+    int x;
+protected:
+    int y;
+private:
+    int z;
+};
+
+class B : public A
+{
+    // x is public
+    // y is protected
+    // z is not accessible from B
+};
+
+class C : protected A
+{
+    // x is protected
+    // y is protected
+    // z is not accessible from C
+};
+
+class D : private A
+{
+    // x is private
+    // y is private
+    // z is not accessible from D
+};
+
+-----------------------------------------------------------------------------
+5.
+Q:
+class Base {
+	func();
+}
+class Derived : Base {
+	func();
+}
+Derived der;
+((Base *)der)->func();		// func() from which class will be called? ANS: It won't even compile, coz der ain't
+((Base *)der&)->func();		// func() of Base class will be called
+((Base)der)->func();		// func() of Base class will be called (probably)
+-----------------------------------------------------------------------------
+6.
+Q: 
+Which types of inheritance do you know?
+A: 
+1. "Classic" inheritance
+2. "Polymorphism" inheritance, when we implement some basic abstract class
+-----------------------------------------------------------------------------
+7. 
+Q:
+What is inheritance
+-----------------------------------------------------------------------------
+8. КАк вызвать метод базового класса из дерайвед класса, если в дерайведе он переопределен
+Отв: 
+	:: либо ...
+-----------------------------------------------------------------------------
+9.
+Q: 
+	What is virtual method? Difference (relation) between virtual method and abstract method?
+A: 
+	Abstract is when there is no realization. Otherwise, it is virtual method.
+-----------------------------------------------------------------------------
+10.
+Q: We've created instance of class. Then called destructor of its base class. Will we lose any data?
+A: Probably, yes, we'll lose some data. (BTW, you can call a distructor)
+-----------------------------------------------------------------------------
