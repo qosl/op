@@ -6,23 +6,12 @@
 class Cube : public Figure
 {
 public:
-    Cube ()
-    {
+    Cube ();
 
-    }
+    Cube (double _a);
 
-    Cube (double _a) : Figure(_a)
-    {
+    double get_volume();
 
-    }
-
-    double get_volume() {
-        return a * a * a;
-    }
-
-    double get_square() {
-        return 6 * (a * a);
-    }
-
+    double get_square();
 };
 #endif // CUBE

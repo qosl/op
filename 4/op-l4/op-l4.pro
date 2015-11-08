@@ -5,7 +5,9 @@ CONFIG -= qt
 CONFIG += c++11
 SOURCES += main.cpp \
     figure.cpp \
-    tetrahedron.cpp
+    tetrahedron.cpp \
+    cube.cpp \
+    parallelepiped.cpp
 
 include(deployment.pri)
 qtcAddDeployment()

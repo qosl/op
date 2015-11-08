@@ -6,24 +6,13 @@
 class Tetrahedron : public Figure
 {
 public:
-    Tetrahedron()
-    {
+    Tetrahedron();
 
-    }
+    Tetrahedron(double _a);
 
-    Tetrahedron(double _a) : Figure(_a)
-    {
+    double get_volume();
 
-    }
-
-    double get_volume() {
-        return (a * a * a) / (6 * sqrt(2));
-    }
-
-    double get_square() {
-        return (a * a) * (sqrt(3));
-    }
-
+    double get_square();
 };
 
 #endif // TETRAHEDRON_H

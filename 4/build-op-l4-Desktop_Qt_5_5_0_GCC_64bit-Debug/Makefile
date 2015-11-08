@@ -50,10 +50,14 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../op-l4/main.cpp \
 		../op-l4/figure.cpp \
-		../op-l4/tetrahedron.cpp 
+		../op-l4/tetrahedron.cpp \
+		../op-l4/cube.cpp \
+		../op-l4/parallelepiped.cpp 
 OBJECTS       = main.o \
 		figure.o \
-		tetrahedron.o
+		tetrahedron.o \
+		cube.o \
+		parallelepiped.o
 DIST          = ../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/common/unix.conf \
 		../../../Qt5.5.0/5.5/gcc_64/mkspecs/common/linux.conf \
@@ -185,7 +189,9 @@ DIST          = ../../../Qt5.5.0/5.5/gcc_64/mkspecs/features/spec_pre.prf \
 		parallelepiped.h \
 		cube.h ../op-l4/main.cpp \
 		../op-l4/figure.cpp \
-		../op-l4/tetrahedron.cpp
+		../op-l4/tetrahedron.cpp \
+		../op-l4/cube.cpp \
+		../op-l4/parallelepiped.cpp
 QMAKE_TARGET  = op-l4
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = op-l4
@@ -513,7 +519,8 @@ compiler_clean:
 
 main.o: ../op-l4/main.cpp ../op-l4/figure.h \
 		../op-l4/tetrahedron.h \
-		../op-l4/parallelepiped.h
+		../op-l4/parallelepiped.h \
+		../op-l4/cube.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../op-l4/main.cpp
 
 figure.o: ../op-l4/figure.cpp ../op-l4/figure.h
@@ -522,6 +529,15 @@ figure.o: ../op-l4/figure.cpp ../op-l4/figure.h
 tetrahedron.o: ../op-l4/tetrahedron.cpp ../op-l4/tetrahedron.h \
 		../op-l4/figure.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tetrahedron.o ../op-l4/tetrahedron.cpp
+
+cube.o: ../op-l4/cube.cpp ../op-l4/cube.h \
+		../op-l4/figure.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cube.o ../op-l4/cube.cpp
+
+parallelepiped.o: ../op-l4/parallelepiped.cpp ../op-l4/parallelepiped.h \
+		../op-l4/figure.h \
+		../op-l4/tetrahedron.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o parallelepiped.o ../op-l4/parallelepiped.cpp
 
 ####### Install
 
