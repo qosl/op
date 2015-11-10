@@ -18,7 +18,8 @@ Figure* init() {
     string x;
     vector<double> lol;
 
-    while (getline(cin, x)) {
+    while (lol.size() != 3) {
+        getline(cin, x);
         if (x.empty()) {
             break;
         }
@@ -51,6 +52,8 @@ Figure* init() {
 int main() {
     cout << "Igor Mayorov, HARDEST LEVEL, var. 8\n"
             "Press any key to continue or Enter to exit." << endl;
+
+    /*program is working repeatedly until user presses Enter key*/
     while (getchar() != '\n') {
         system("clear");
         cout << "Enter one number to create tetrahedron or cube.\n"
@@ -60,29 +63,6 @@ int main() {
         cout << "Volume:" << lol->get_volume() << endl;
         cout << "Square:" << lol->get_square() << endl;
         cout << "Press any key to continue or Enter to exit." << endl;
-        lol->~Figure();
     }
-
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

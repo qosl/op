@@ -10,7 +10,7 @@ public:
 
     Cube (double _a);
 
-    double get_volume();
+    virtual double get_volume();
 
     double get_square();
 };
